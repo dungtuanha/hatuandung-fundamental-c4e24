@@ -14,5 +14,6 @@ your_word = str(input("your answer: "))
 while your_word != (word):
     your_word = str(input("wrong answer, try again: "))
     if your_word == (word):
-        print("Bingo")
         break
+
+ print("Bingo")
