@@ -29,7 +29,7 @@ while True:
     words.remove(word)
     print("Bingo")
     
-    try_again = str(input("Do you want to try again with an other word(Y/N)? "))
+    try_again = str(input("Do you want to try again with an other word(Y/N)? ")).upper()
     if try_again == "Y":
         if len(words) == 0:
             print("sorry we are out of word, thanks for playing^^")
