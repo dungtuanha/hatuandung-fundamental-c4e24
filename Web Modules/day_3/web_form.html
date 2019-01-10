@@ -1,0 +1,28 @@
+C4E Student book
+Web form
+HTML Form
+Bọc thẻ <form \> vào các input cần được gửi nội dung đi
+<form method="POST">
+  <input >
+  <input >
+  ...
+</form>
+Trong các thẻ <input name="" \>, cần có attribute "name" để đánh nhãn cho nội dung của các thẻ này
+...
+<input name="image" >
+...
+Để thực hiện POST, cần điều chỉnh ở cả hai phía client và server như sau:
+Client: method="POST" trong thẻ form
+<form method="POST">
+...
+Server: Chấp nhận cả GET và POST trong router
+@app.route('/...', methods=["GET", "POST"])
+...
+Khi gặp lỗi Bad request, thường nguyên nhân là do key trong input và khi bóc tách form không giống nhau
+<form method="POST">
+  <input name="imag">
+</form>
+@app.route('/...', methods=["GET", "POST"])
+...
+form = request.form
+image = form["image"]
