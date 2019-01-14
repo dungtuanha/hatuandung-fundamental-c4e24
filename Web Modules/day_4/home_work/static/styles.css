@@ -1,0 +1,16 @@
+#root {
+    height: 100%;
+    flex-flow: row;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+button {
+    color: chartreuse
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+}

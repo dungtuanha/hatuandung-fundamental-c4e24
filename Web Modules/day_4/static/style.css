@@ -1,0 +1,45 @@
+/* button {
+    color: blueviolet;
+} */
+
+* {
+    font-family: 'Staatliches', cursive;
+}
+
+#root {
+    height: 100%; 
+    flex-flow: row;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+
+html, body {
+    height: 100%;
+}
+
+.form_label {
+    min-width: 79px;
+    display: inline-block;
+}
+
+#btn_login {
+    float: right;
+    border-radius: 3px;
+    background-color: blue;
+    color: #cccccc;
+    padding: 4px 8px 4px 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.mb_2 {
+    margin-bottom: 16px;
+}
+
+input {
+    border-radius: 3px;
+    border: solid 1px #cccccc;
+    font-size: 1.1rem;
+}
