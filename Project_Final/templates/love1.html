@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>moodify.</title>
+</head>
+<style>
+        #music_body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            
+        * {
+        box-sizing: border-box;
+        }
+        body {
+                background-color: black;
+        }
+    
+        #quotes_body {
+            background-color: black;
+            min-height: 50vh;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        } 
+        blockquote {
+        font-size: 3rem;
+        }
+        cite {
+        display: block;
+        text-align: right;
+        font-family: Verdana, Arial, sans-serif;
+        margin-top: 1rem;
+        font-size: .9rem;
+        color: #aaa;
+        font-style: normal;
+        }
+        blockquote q {
+        font-family: Georgia, serif;
+        font-style: italic;
+        letter-spacing: .1rem;
+        }
+        blockquote q span { 
+        will-change: opacity, filter;
+        opacity: 0;
+        filter: blur(0px);
+        }
+        q {
+        quotes: "“" "”" "‘" "’";
+        }
+        q:before {
+            content: open-quote;
+            margin-right: .8rem;
+        }
+        q:after {
+        content: close-quote;
+        }
+        q:before, q:after {
+        color: #ccc;
+        font-size: 4rem;
+        }
+        #logo{
+        
+        font-size: 1.5rem;
+        font-family: 'Raleway', sans-serif;
+        color:  white ;
+        }
+        
+</style>
+<body>
+    <!-- Trap -->
+    <div id="music_body">
+        <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/705708084%3Fsecret_token%3Ds-jjMNc&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
+    <blockquote contenteditable="true" id="quotes_body"><q>{{ love }}</q>
+    </blockquote>
+
+    <script>
+            function splitWords() {
+        let quote = document.querySelector("blockquote q");
+        quote.innerText.replace(/(<([^>]+)>)/ig,"");
+        quotewords = quote.innerText.split(" "),
+        wordCount = quotewords.length;
+        quote.innerHTML = "";
+        for (let i=0; i < wordCount; i++) {
+            quote.innerHTML += "<span>"+quotewords[i]+"</span>";
+            if (i < quotewords.length - 1) {
+            quote.innerHTML += " ";
+            }
+        }
+        quotewords = document.querySelectorAll("blockquote q span");
+        fadeWords(quotewords);
+        }
+
+        function getRandom(min, max) {
+        return Math.random() * (max - min) + min;
+        }
+
+        function fadeWords(quotewords) {
+        Array.prototype.forEach.call(quotewords, function(word) {
+            let animate = word.animate([{
+            opacity: 0,
+            filter: "blur("+getRandom(2,5)+"px)"
+            }, {
+            opacity: 1,
+            filter: "blur(0px)"
+            }], 
+            { 
+            duration: 1000,
+            delay: getRandom(500,3300),
+            fill: 'forwards'
+            } 
+        )
+        })
+        }
+
+
+        splitWords();
+    </script>
+</body>
+<a id="logo" >
+    <h4>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;moodify.</h4>
+</a>
+</html>
